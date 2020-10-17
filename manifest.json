@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Hodor",
     "description":"Hold the door",
-    "version": "0.1",
+    "version": "0.1.1",
     "background": {
         "scripts": ["background.js"],
         "persistent": true

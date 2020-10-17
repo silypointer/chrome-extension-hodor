@@ -1,10 +1,17 @@
 
 var HODOR = HODOR || {};
+var conversion;
 
 HODOR.main =  (function() {
-
+	
+	
   var init = function () {
-    var bodyElement = document.getElementsByTagName('body');
+	  
+	  if(conversion == 2) {
+		location.reload();	
+	  }
+	var bodyElement = document.getElementsByTagName('body');
+	
     if (bodyElement != undefined && bodyElement[0] != undefined) {
 			var elements = bodyElement[0].getElementsByTagName('*');
 			for (var i = 0; i < elements.length; i++) {
@@ -20,12 +27,12 @@ HODOR.main =  (function() {
 						continue;
 
 					if (node.nodeType === 3) {
-            
-            node.nodeValue = " Hodor ";
+						node.nodeValue = " Hodor ";
+						conversion = 2;
 					}
 				}
 			}
-		}
+		} 
   }
   return {
 		init : init

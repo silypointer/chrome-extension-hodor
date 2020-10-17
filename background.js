@@ -1,10 +1,8 @@
 // background.js
 chrome.browserAction.onClicked.addListener(function(tab) {
-  
-  chrome.tabs.executeScript(tab.ib, {
+	chrome.tabs.executeScript(tab.ib, {
 		file: 'content.js'
-	});
-  
+	}); 
 });
 // Called when the user clicks on the browser action.
 // chrome.browserAction.onClicked.addListener(function(tab) {
