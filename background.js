@@ -1,14 +1,11 @@
-// background.js
-chrome.browserAction.onClicked.addListener(function(tab) {
-	chrome.tabs.executeScript(tab.ib, {
-		file: 'content.js'
-	}); 
+// background.js - Manifest V3 compatible
+chrome.action.onClicked.addListener(function(tab) {
+    // Send message to content script to trigger Hodor conversion
+    chrome.tabs.sendMessage(tab.id, {action: "hodor"}, function(response) {
+        if (chrome.runtime.lastError) {
+            console.log('Error sending message:', chrome.runtime.lastError.message);
+        } else {
+            console.log('Hodor conversion triggered:', response);
+        }
+    });
 });
-// Called when the user clicks on the browser action.
-// chrome.browserAction.onClicked.addListener(function(tab) {
-//     // Send a message to the active tab
-//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//       var activeTab = tabs[0];
-//       chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
-//     });
-//   });
